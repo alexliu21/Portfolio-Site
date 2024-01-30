@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Alex Liu - Website</title>
+        <style>
+            body {
+                font-family: "Source Code Pro", monospace;
+                background-color: #e9e2d5;
+                overflow: auto;
+                color: #2e3652;
+                transition: all 0.6s;
+            }
+        
+            .sidebar {
+                height: 100%;
+                width: 85px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 1;
+                background-color: #8591a1;
+                transition: 0.6s;
+                overflow-x: hidden;
+                padding-top: 60px;
+                white-space: nowrap;
+            }
+
+            .sidebar a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 23px;
+                color: #20263a;
+                display: block;
+                transition: all 0.6s;
+            }
+
+            .darkbar {
+                background-color: #65696e;
+                color: #a09f9f;
+                transition: all 0.6s;
+            }
+            
+            .button {
+                padding: 8px 8px 32px 32px;
+                display: block;
+                border: none;
+                background-color: transparent;
+                color: #313131;
+                height: 80px;
+                width: 120px;
+                font-size: 23px;
+                text-align: center;
+                font-family: "Courier New", Courier, monospace;
+                transition: all 0.6s;
+            }
+        
+            main .sidebar {
+                position: absolute;
+                top: 250px;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+        
+            .material-icons,
+            .icon-text {
+                vertical-align: baseline;
+            }
+        
+            .material-icons {
+                padding-bottom: 3px;
+                margin-right: 30px;
+            }
+        
+            #main {
+                padding: 16px;
+                margin-left: 85px;
+                transition: margin-left 0.6s;
+            }
+        
+            @media screen and (max-height: 450px) {
+                .sidebar {
+                    padding-top: 15px;
+                }
+                .sidebar a {
+                    font-size: 18px;
+                }
+            }
+        
+            .center {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 40%;
+            }
+            
+            .center2 {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            
+            p.a {
+                font-family: monaco,Consolas,Lucida Console,monospace; 
+            }
+        
+            h1.a{
+                font-family: "Courier New", Courier, monospace;
+            }
+        
+            a.a{
+                font-family: "Courier New", Courier, monospace;
+            }
+            
+            .dark-mode {
+                background-color: #333b4e;
+                color: #c4bfb6;
+                transition: all 0.6s;
+            }
+            
+            #particles-js {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-position: 50% 50%;
+                color: #97a6c5;
+            }
+            
+            #particles-js-container {
+	            position:absolute;
+                width: 100%;
+                height: 100%;
+                background-color: #e9e2d5;
+                transition: all 0.6s;
+	        }            
+        </style>
+
+        <script>
+            let backgroundColor = "#e9e2d5";
+            let sideTextCol = "#20263a";
+            function darkMode(){
+                document.body.classList.toggle("dark-mode");
+                document.getElementById("mySidebar").classList.toggle("darkbar");
+                backgroundColor = backgroundColor === "#e9e2d5" ? "#333b4e" : "#e9e2d5";
+                document.getElementById("particles-js-container").style.backgroundColor = backgroundColor;
+                sideTextCol = sideTextCol === "#20263a" ? "#a9aaaf" : "#20263a";
+                let hyperlinks = document.getElementById("mySidebar").getElementsByClassName("a");
+                for (var i = 0; i < hyperlinks.length; i++){
+                    hyperlinks[i].style.color = sideTextCol;
+                }
+                document.getElementById("darkButton").style.color = sideTextCol;
+            }
+        </script>
+        
+        <script>
+            var mini = true;
+            function toggleSidebar() {
+                if (mini) {
+                    console.log("opensidebar");
+                    document.getElementById("mySidebar").style.width = "250px";
+                    document.getElementById("main").style.marginLeft = "250px";
+                    this.mini = false;
+                } 
+                else {
+                    console.log("closesidebar");
+                    document.getElementById("mySidebar").style.width = "85px";
+                    document.getElementById("main").style.marginLeft = "85px";
+                    this.mini = true;
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+        <div id="mySidebar" class="sidebar" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
+            <a class="a" href="index.html"><img src="images/home.png" class="icons" width="20" height="20"><span class="icon-text">&nbsp;&nbsp;&nbsp;Home</a><br>
+            <a class="a" href="aboutme.html"><img src="images/about.png" class="icons" width="20" height="20"><span class="icon-text">&nbsp;&nbsp;&nbsp;About Me</a><br>
+            <a class="a" href="resume.html"><img src="images/portfolio.png" class="icons" width="20" height="20"><span class="icon-text">&nbsp;&nbsp;&nbsp;Portfolio</a><br>
+            <br> <br> <br>
+            <button class="button" id="darkButton" onclick="darkMode()"><img src="images/bulb.png" class="icons" width="22" height="22"><span class="icon-text">&nbsp;&nbsp;&nbsp;Dark Mode</button><br>
+            
+        </div>
+      
+        <div id="main">
+            <h1 class="a">Welcome.<br></h1>
+            <p class="a" style="font-size:120%" >
+                My name's Alex. Thanks for taking a look at my site.
+                <br> <br>
+            </p>
+            <p class="a" style="font-size:120%" >
+                To navigate this site, please use the <b>sidebar</b>.
+                <br> <br>
+            </p>
+        </div>
+
+        <div id="particles-js-container">           
+            <div id="particles-js">
+                <script src="particles.js"></script>
+                <script>
+                    particlesJS("particles-js", {"particles":{"number":{"value":52,"density":{"enable":true,"value_area":800}},"color":{"value":"#97a6c5"},"shape":{"type":"polygon","stroke":{"width":1,"color":"#000000"},"polygon":{"nb_sides":4},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":0.5,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":6,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":true,"distance":150,"color":"#6f7280","opacity":0.4,"width":1},"move":{"enable":true,"speed":1.603412060865523,"direction":"bottom","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"grab"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":false});var count_particles, stats, update; stats = new Stats; stats.setMode(0); stats.domElement.style.position = 'absolute'; stats.domElement.style.left = '0px'; stats.domElement.style.top = '0px'; document.body.appendChild(stats.domElement); count_particles = document.querySelector('.js-count-particles'); update = function() { stats.begin(); stats.end(); if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) { count_particles.innerText = window.pJSDom[0].pJS.particles.array.length; } requestAnimationFrame(update); }; requestAnimationFrame(update);;
+                </script>
+            </div>
+        </div>
+    </body>
+</html>
